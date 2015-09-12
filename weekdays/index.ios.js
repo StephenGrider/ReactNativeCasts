@@ -10,3 +10,6 @@ var Weekdays = React.createClass({
 });
 
 // Show the react component on the screen
+AppRegistry.registerComponent('weekdays', function() {
+  return Weekdays
+});
