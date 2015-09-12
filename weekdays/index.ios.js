@@ -7,8 +7,6 @@ var View = React.View;
 var StyleSheet = React.StyleSheet;
 var DayItem = require('./src/day-item');
 
-var DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-
 // Create a react component
 var Weekdays = React.createClass({
   render: function() {
@@ -17,10 +15,16 @@ var Weekdays = React.createClass({
     </View>
   },
   days: function() {
-    return DAYS.map(function(day, index){
-      // Called 7 times, one for each day of the week
-      return <DayItem day={day} />
-    });
+    var daysItems = [];
+
+    for(var i = 0; i < 7; i++){
+      var day = Moment().add(i, 'days').format('dddd');
+      daysItems.push(
+        <DayItem day={day} daysUntil={i} />
+      )
+    }
+
+    return daysItems
   }
 });
 
