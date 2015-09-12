@@ -8,6 +8,11 @@ var {
 } = React;
 
 var StopWatch = React.createClass({
+  getInitialState: function() {
+    return {
+      timeElapsed: null
+    }
+  },
   render: function() {
     return <View style={styles.container}>
       <View style={[styles.header, this.border('yellow')]}>
@@ -47,7 +52,12 @@ var StopWatch = React.createClass({
     </View>
   },
   handleStartPress: function() {
-    console.log('Start was tapped');
+    var startTime = new Date();
+
+    // Update our state with some new value
+    this.setState({
+      timeElapsed: new Date() - startTime
+    });
   },
   border: function(color){
     return {
