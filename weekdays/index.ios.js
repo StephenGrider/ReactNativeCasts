@@ -5,6 +5,8 @@ var Text = React.Text;
 var View = React.View;
 var StyleSheet = React.StyleSheet;
 
+var DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+
 // Create a react component
 var Weekdays = React.createClass({
   render: function() {
