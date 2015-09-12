@@ -1,7 +1,11 @@
 // Create a react component
 var Weekdays = React.createClass({
   render: function() {
-    return 
+    return <View>
+      <Text>
+        Days of the week:
+      </Text>
+    </View>
   }
 });
 
