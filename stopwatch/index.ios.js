@@ -8,20 +8,20 @@ var {
 
 var StopWatch = React.createClass({
   render: function() {
-    return <View>
-      <View>
-        <View>
+    return <View style={styles.container}>
+      <View style={[styles.header, this.border('yellow')]}>
+        <View style={this.border('red')}>
           <Text>
             00:00.00
           </Text>
         </View>
-        <View>
+        <View style={this.border('green')}>
           {this.startStopButton()}
           {this.lapButton()}
         </View>
       </View>
 
-      <View>
+      <View style={[styles.footer, this.border('blue')]}>
         <Text>
           I am a list of Laps
         </Text>
@@ -41,6 +41,12 @@ var StopWatch = React.createClass({
         Lap
       </Text>
     </View>
+  },
+  border: function(color){
+    return {
+      borderColor: color,
+      borderWidth: 4
+    }
   }
 });
 
