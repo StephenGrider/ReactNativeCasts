@@ -6,6 +6,7 @@
     "start": "node_modules/react-native/packager/packager.sh"
   },
   "dependencies": {
+    "minutes-seconds-milliseconds": "^1.0.3",
     "react-native": "^0.10.1"
   }
 }

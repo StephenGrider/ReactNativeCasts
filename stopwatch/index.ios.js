@@ -1,3 +1,4 @@
+var formatTime = require('minutes-seconds-milliseconds');
 var React = require('react-native');
 var {
   Text,
@@ -18,7 +19,7 @@ var StopWatch = React.createClass({
       <View style={[styles.header, this.border('yellow')]}>
         <View style={[styles.timerWrapper, this.border('red')]}>
           <Text>
-            00:00.00
+            {formatTime(this.state.timeElapsed)}
           </Text>
         </View>
         <View style={[styles.buttonWrapper, this.border('green')]}>
@@ -54,10 +55,11 @@ var StopWatch = React.createClass({
   handleStartPress: function() {
     var startTime = new Date();
 
-    // Update our state with some new value
-    this.setState({
-      timeElapsed: new Date() - startTime
-    });
+    setInterval(() => {
+      this.setState({
+        timeElapsed: new Date() - startTime
+      });
+    }, 30);
   },
   border: function(color){
     return {
