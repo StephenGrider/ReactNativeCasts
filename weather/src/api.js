@@ -7,13 +7,13 @@ var kelvinToF = function(kelvin) {
 module.exports = function(latitude, longitude) {
   var url = `${rootUrl}&lat=${latitude}&lon=${longitude}`;
 
-  fetch(url)
+  return fetch(url)
     .then(function(response){
       return response.json();
     })
     .then(function(json){
       return {
-        city: json.city,
+        city: json.name,
         temperature: kelvinToF(json.main.temp),
         description: json.weather[0].description
       }

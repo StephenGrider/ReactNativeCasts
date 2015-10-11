@@ -6,13 +6,18 @@ var {
   StyleSheet
 } = React;
 
+var Api = require('./src/api');
+
 var Weather = React.createClass({
   getInitialState: function() {
     return {
       pin: {
         latitude: 0,
         longitude: 0
-      }
+      },
+      city: '',
+      temperature: '',
+      description: ''
     };
   },
   render: function() {
@@ -29,6 +34,12 @@ var Weather = React.createClass({
         latitude: region.latitude
       }
     });
+
+    Api(region.latitude, region.longitude)
+      .then((data) => {
+        console.log(data);
+        this.setState(data);
+      });
   }
 });
 
