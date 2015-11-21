@@ -5,6 +5,7 @@ var {
   StyleSheet
 } = React;
 
+var Parse = require('parse/react-native');
 var Signin = require('./components/authentication/signin');
 
 module.exports = React.createClass({
