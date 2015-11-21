@@ -6,17 +6,41 @@ var {
   TextInput
 } = React;
 
+var Button = require('../common/button');
+
 module.exports = React.createClass({
+  getInitialState: function() {
+    return {
+      username: '',
+      password: ''
+    };
+  },
   render: function() {
     return (
       <View style={styles.container}>
         <Text>Sign In</Text>
+
         <Text style={styles.label}>Username:</Text>
-        <TextInput style={styles.input} />
+        <TextInput
+          style={styles.input}
+          value={this.state.username}
+          onChangeText={(text) => this.setState({username: text})}
+          />
+
         <Text style={styles.label}>Password:</Text>
-        <TextInput secureTextEntry={true} style={styles.input} />
+        <TextInput
+          secureTextEntry={true}
+          style={styles.input}
+          value={this.state.password}
+          onChangeText={(text) => this.setState({password: text})}
+          />
+
+        <Button text={'Sign In'} onPress={this.onPress} />
       </View>
     );
+  },
+  onPress: function() {
+    // Log the user in
   }
 });
 
