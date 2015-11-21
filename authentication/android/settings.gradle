@@ -1,0 +1,3 @@
+rootProject.name = 'authentication'
+
+include ':app'
