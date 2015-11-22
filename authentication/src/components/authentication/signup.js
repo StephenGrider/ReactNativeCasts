@@ -59,8 +59,8 @@ module.exports = React.createClass({
     user.set('password', this.state.password);
 
     user.signUp(null, {
-      success: (user) => { console.log(user); },
-      error: (user, error) => { console.log(error); }
+      success: (user) => { this.props.navigator.immediatelyResetRouteStack([{name: 'tweets'}]); },
+      error: (user, error) => { this.setState({errorMessage: error.message}); }
     });
   },
   onSigninPress: function() {
