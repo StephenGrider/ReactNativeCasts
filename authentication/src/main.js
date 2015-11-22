@@ -1,8 +1,7 @@
 var React = require('react-native');
 var {
-  View,
-  Text,
-  StyleSheet
+  StyleSheet,
+  Navigator
 } = React;
 
 var Parse = require('parse/react-native');
@@ -14,17 +13,18 @@ module.exports = React.createClass({
   },
   render: function() {
     return (
-      <View style={styles.container}>
-        <Signin />
-      </View>
+      <Navigator
+        style={style.container}
+        initialRoute={}
+        renderScene={}
+        configureScene={() => { return Navigator.SceneConfigs.FloatFromRight; }}
+        />
     );
   }
 });
 
 var styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    flex: 1
   }
 });
